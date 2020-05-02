@@ -13,7 +13,9 @@
   "dependencies": {
     "next": "9.3.6",
     "react": "16.13.1",
-    "react-dom": "16.13.1"
+    "react-dom": "16.13.1",
+    "styled-media-query": "^2.1.2",
+    "styled-tools": "^1.7.1"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
