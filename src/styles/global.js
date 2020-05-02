@@ -1,4 +1,18 @@
 export const globalStyles = `
+    :root {
+        --color-white: #fff;
+        --color-black: #fff; 
+    }
+
+    html {
+      height: 100%;
+      font-size: 100%;
+    }
+
+    body {
+      max-height: 100%;
+    }
+
 html,
 body {
   padding: 0;
@@ -15,6 +29,11 @@ body {
 
     img {
     width: 100%;
+  }
+
+  figure, img, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
   }
 `;
 
