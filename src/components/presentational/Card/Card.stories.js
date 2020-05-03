@@ -3,6 +3,7 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 import Card from "./Card";
 
 import { mockCard } from "../../../utils/mocks/card";
+import { WithGlobalStyling } from "./../../../utils/decorators/withGlobalStyling";
 
 export default {
   component: Card,
