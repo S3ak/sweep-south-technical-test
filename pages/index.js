@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import fetch from "node-fetch";
-import Avatar from "./../src/components/presentational/Avatar/Avatar";
+import Avatar from "../src/components/Avatar/Avatar.js";
 import { globalStyles } from "./../src/styles/global";
 
 export default function Home({ people = [] }) {
