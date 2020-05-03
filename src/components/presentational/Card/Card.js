@@ -1,4 +1,5 @@
 import React from "react";
+import PT from "prop-types";
 
 import {
   Wrapper,
@@ -27,3 +28,9 @@ export default function Card({ title, children, imageUrl, description }) {
     </Wrapper>
   );
 }
+
+Card.propTypes = {
+  title: PT.string,
+  description: PT.string,
+  imageUrl: PT.string,
+};

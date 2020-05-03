@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import { getUUID } from "../../utils/helpers";
+
 import {
   CardListItem,
   CardList,
@@ -8,20 +10,27 @@ import {
 import Card from "../../components/presentational/card/Card";
 
 export const Profiles = ({ initialPeople = [] }) => {
-  const [people, setProfiles] = useState([initialPeople]);
-
-  console.warn("people >>>>", people);
-  console.warn("object keys >>>>");
+  const [people] = useState(initialPeople);
 
   return (
     <CardList>
-      {Object.keys(people)}
       {people.length >= 1 &&
-        people.map((i) => (
-          <CardListItem key={i.id}>
-            <Card />
-          </CardListItem>
-        ))}
+        people.map(
+          ({
+            email = "email@mail.com",
+            title = "Missing title",
+            imageUrl = "https://images.unsplash.com/photo-1588417487179-55a8b349321e?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=634&amp;q=80",
+            description = "lorem ipsum",
+          }) => (
+            <CardListItem key={email}>
+              <Card
+                title={title}
+                imageUrl={imageUrl}
+                description={description}
+              />
+            </CardListItem>
+          )
+        )}
     </CardList>
   );
 };

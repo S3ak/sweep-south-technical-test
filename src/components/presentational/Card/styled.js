@@ -33,6 +33,7 @@ export const Avatar = styled.div`
   img {
     object-fit: cover;
     width: 100%;
+    max-width: 100%;
   }
 `;
 

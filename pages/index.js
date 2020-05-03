@@ -4,12 +4,6 @@ import fetch from "node-fetch";
 import { globalStyles } from "./../src/styles/global";
 import ConnectedProfiles from "../src/containers/profiles";
 
-import {
-  CardList,
-  CardListItem,
-} from "../src/components/presentational/card-list/styled";
-import Card from "../src/components/presentational/card/Card";
-
 // import Profiles from "../src/containers/profiles";
 
 export default function Home({ people = [] }) {
@@ -21,7 +15,7 @@ export default function Home({ people = [] }) {
       </Head>
 
       <main>
-        <ConnectedProfiles />
+        <ConnectedProfiles initialPeople={people} />
       </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
@@ -35,11 +29,12 @@ export default function Home({ people = [] }) {
 
 // NOTE: This is called at build time
 export async function getStaticProps() {
-  const endPoint = "https://randomuser.me/api/?results=50";
+  const endPoint = "https://randomuser.me/api/?results=10";
 
   // TODO: try catch this section
   const res = await fetch(endPoint);
 
+  // TODO: Send results to reducer
   const people = await res.json();
 
   // The value of the `props` key will be
