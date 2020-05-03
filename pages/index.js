@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import fetch from "node-fetch";
-import Card from "../src/components/presentational/card/index";
+import Card from "../src/components/presentational/Card/index";
 import { globalStyles } from "./../src/styles/global";
 
 export default function Home({ people = [] }) {
