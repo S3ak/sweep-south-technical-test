@@ -1,11 +1,18 @@
 import Head from "next/head";
+import fetch from "node-fetch";
 
 import { globalStyles } from "./../src/styles/global";
+import ConnectedProfiles from "../src/containers/profiles";
 
-import CardListItem from "../src/components/presentational/card-list-item/CardListItem";
+import {
+  CardList,
+  CardListItem,
+} from "../src/components/presentational/card-list/styled";
 import Card from "../src/components/presentational/card/Card";
 
-export default function Home() {
+// import Profiles from "../src/containers/profiles";
+
+export default function Home({ people = [] }) {
   return (
     <div className="container">
       <Head>
@@ -14,11 +21,7 @@ export default function Home() {
       </Head>
 
       <main>
-        {cards.map((i) => (
-          <CardListItem key={id}>
-            <Card />
-          </CardListItem>
-        ))}
+        <ConnectedProfiles />
       </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
@@ -28,4 +31,22 @@ export default function Home() {
       </style>
     </div>
   );
+}
+
+// NOTE: This is called at build time
+export async function getStaticProps() {
+  const endPoint = "https://randomuser.me/api/?results=50";
+
+  // TODO: try catch this section
+  const res = await fetch(endPoint);
+
+  const people = await res.json();
+
+  // The value of the `props` key will be
+  //  passed to the `Home` component
+  return {
+    props: {
+      people: people.results,
+    },
+  };
 }
