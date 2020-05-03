@@ -1,8 +1,6 @@
 import Head from "next/head";
 import fetch from "node-fetch";
-
-import ConnectedProfiles from "../src/containers/profiles";
-
+import Card from "../src/components/presentational/card";
 import { globalStyles } from "./../src/styles/global";
 
 export default function Home({ people = [] }) {
@@ -15,8 +13,15 @@ export default function Home({ people = [] }) {
       </Head>
 
       <main>
-        <ConnectedProfiles initialPeople={people} />
-        {/* TODO: Insert list */}
+        {people.length >= 1 &&
+          people.map(({ name, email, picture, location }) => (
+            <Card
+              key={`${name.title} ${name.first} ${name.last}`}
+              title={`${name.title} ${name.first} ${name.last}`}
+              imageUrl={picture.medium}
+              description={location.city}
+            />
+          ))}
       </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
