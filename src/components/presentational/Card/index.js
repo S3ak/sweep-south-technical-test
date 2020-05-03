@@ -9,7 +9,7 @@ import {
   Description,
 } from "./styled";
 
-export default function Card({ title, children, imageUrl, description }) {
+export const Card = ({ title, children, imageUrl, description }) => {
   return (
     <Wrapper>
       <MediaSection>
@@ -26,4 +26,6 @@ export default function Card({ title, children, imageUrl, description }) {
       </ContentSection>
     </Wrapper>
   );
-}
+};
+
+export default Card;
