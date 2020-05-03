@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 
-import { getUUID } from "../../utils/helpers";
-
 import {
   CardListItem,
   CardList,
