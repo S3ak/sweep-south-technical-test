@@ -1,6 +1,8 @@
 import Head from "next/head";
 import fetch from "node-fetch";
 
+import ConnectedProfiles from "../src/containers/profiles";
+
 import { globalStyles } from "./../src/styles/global";
 
 export default function Home({ people = [] }) {
@@ -12,7 +14,10 @@ export default function Home({ people = [] }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>{/* TODO: Insert list */}</main>
+      <main>
+        <ConnectedProfiles initialPeople={people} />
+        {/* TODO: Insert list */}
+      </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
 
