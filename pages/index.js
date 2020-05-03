@@ -3,6 +3,8 @@ import fetch from "node-fetch";
 
 import { globalStyles } from "./../src/styles/global";
 
+import ConnectedProfiles from "../src/containers/profiles/index";
+
 export default function Home({ people = [] }) {
   // TODO: Dispatch people to people reducer
   return (
@@ -12,7 +14,9 @@ export default function Home({ people = [] }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>{/* TODO: Insert list */}</main>
+      <main>
+        <ConnectedProfiles initialPeople={people} />
+      </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
 
