@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import fetch from "node-fetch";
-import Avatar from "../src/components/Avatar/Avatar.js";
+import Card from "../src/components/presentational/card/index";
 import { globalStyles } from "./../src/styles/global";
 
 export default function Home({ people = [] }) {
@@ -16,7 +16,7 @@ export default function Home({ people = [] }) {
       <main>
         {people.length >= 1 &&
           people.map(({ name, email, picture, location }) => (
-            <Avatar
+            <Card
               key={`${name.title} ${name.first} ${name.last}`}
               title={`${name.title} ${name.first} ${name.last}`}
               imageUrl={picture.medium}
