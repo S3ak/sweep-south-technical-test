@@ -6,7 +6,7 @@ import { mockCard } from "../../../utils/mocks/card";
 
 export default {
   component: Card,
-  title: "Card",
+  title: "Card preview",
   decorators: [withKnobs],
 };
 

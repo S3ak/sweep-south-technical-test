@@ -1,6 +1,6 @@
 import React from "react";
 
-import Card from "../card/index";
+import CardPreview from "../card-preview";
 
 import { Wrapper, CardListItem } from "./styled";
 
@@ -10,7 +10,7 @@ export const CardList = ({ items = [] }) => {
       {items.length >= 1 &&
         items.map(({ name, email, picture, location }) => (
           <CardListItem key={email}>
-            <Card
+            <CardPreview
               title={`${name.title} ${name.first} ${name.last}`}
               imageUrl={picture.medium}
               description={location.city}
