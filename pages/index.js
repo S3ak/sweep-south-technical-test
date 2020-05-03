@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import fetch from "node-fetch";
-import Card from "../src/components/presentational/Card/index";
+import Profiles from "../src/containers/profiles/index";
 import { globalStyles } from "./../src/styles/global";
 
 export default function Home({ people = [] }) {
@@ -14,15 +14,7 @@ export default function Home({ people = [] }) {
       </Head>
 
       <main>
-        {people.length >= 1 &&
-          people.map(({ name, email, picture, location }) => (
-            <Card
-              key={`${name.title} ${name.first} ${name.last}`}
-              title={`${name.title} ${name.first} ${name.last}`}
-              imageUrl={picture.medium}
-              description={location.city}
-            />
-          ))}
+        <Profiles initialPeople={people} />
       </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
