@@ -1,4 +1,5 @@
 import Head from "next/head";
+import React from "react";
 import fetch from "node-fetch";
 import Card from "../src/components/presentational/card/Card";
 import { globalStyles } from "./../src/styles/global";
