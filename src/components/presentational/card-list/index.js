@@ -1,6 +1,6 @@
 import React from "react";
 
-import CardPreview from "../card-preview/index";
+import CardPreview from "../card-preview";
 
 import { Wrapper, CardListItem } from "./styled";
 

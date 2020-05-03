@@ -1,7 +1,7 @@
 import Head from "next/head";
 import React from "react";
 import fetch from "node-fetch";
-import Profiles from "../src/components/containers/profiles/index";
+import Profiles from "../src/components/containers/profiles";
 import { globalStyles } from "./../src/styles/global";
 
 export default function Home({ people = [] }) {
