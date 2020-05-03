@@ -9,7 +9,12 @@ import {
   Description,
 } from "./styled";
 
-export const Card = ({ title, children, imageUrl, description }) => {
+export const Card = ({
+  title = "Missing title",
+  children,
+  imageUrl = "https://randomuser.me/api/portraits/med/women/50.jpg",
+  description = "Missing description",
+}) => {
   return (
     <Wrapper>
       <MediaSection>
