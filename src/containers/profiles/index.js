@@ -5,7 +5,7 @@ import {
   CardList,
 } from "../../components/presentational/card-list/styled";
 
-import Card from "../../components/presentational/card/Card";
+import Card from "../../components/presentational/card";
 
 export const Profiles = ({ initialPeople = [] }) => {
   const [people] = useState(initialPeople);

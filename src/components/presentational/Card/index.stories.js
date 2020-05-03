@@ -1,9 +1,8 @@
 import React from "react";
 import { withKnobs, text } from "@storybook/addon-knobs";
-import Card from "./Card";
+import Card from "./index";
 
 import { mockCard } from "../../../utils/mocks/card";
-import { WithGlobalStyling } from "./../../../utils/decorators/withGlobalStyling";
 
 export default {
   component: Card,

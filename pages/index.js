@@ -4,9 +4,8 @@ import fetch from "node-fetch";
 import { globalStyles } from "./../src/styles/global";
 import ConnectedProfiles from "../src/containers/profiles";
 
-// import Profiles from "../src/containers/profiles";
-
 export default function Home({ people = [] }) {
+  // TODO: Dispatch people to people reducer
   return (
     <div className="container">
       <Head>
@@ -34,7 +33,6 @@ export async function getStaticProps() {
   // TODO: try catch this section
   const res = await fetch(endPoint);
 
-  // TODO: Send results to reducer
   const people = await res.json();
 
   // The value of the `props` key will be
