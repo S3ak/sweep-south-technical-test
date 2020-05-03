@@ -11,6 +11,7 @@ export const globalStyles = `
 
     body {
       max-height: 100%;
+      color: pink;
     }
 
 html,
