@@ -18,6 +18,7 @@ export const Card = ({
   uuid,
 }) => {
   return (
+    // TODO: Use name instead, hide id
     <Link href={`/profiles/${uuid}`}>
       <Wrapper>
         <MediaSection>
