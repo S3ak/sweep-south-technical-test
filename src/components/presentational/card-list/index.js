@@ -8,12 +8,13 @@ export const CardList = ({ items = [] }) => {
   return (
     <Wrapper>
       {items.length >= 1 &&
-        items.map(({ name, email, picture, location }) => (
-          <CardListItem key={email}>
+        items.map(({ name, login, picture, location }) => (
+          <CardListItem key={login.uuid}>
             <CardPreview
               title={`${name.title} ${name.first} ${name.last}`}
               imageUrl={picture.medium}
               description={location.city}
+              uuid={login.uuid}
             />
           </CardListItem>
         ))}

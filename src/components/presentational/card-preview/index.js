@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "next/link";
 
 import {
   Wrapper,
@@ -14,22 +15,26 @@ export const Card = ({
   children,
   imageUrl = "https://randomuser.me/api/portraits/med/women/50.jpg",
   description = "Missing description",
+  uuid,
 }) => {
   return (
-    <Wrapper>
-      <MediaSection>
-        <Avatar>
-          <img src={imageUrl} />
-        </Avatar>
-      </MediaSection>
+    // TODO: Use name instead, hide id
+    <Link href={`/profiles/${uuid}`}>
+      <Wrapper>
+        <MediaSection>
+          <Avatar>
+            <img src={imageUrl} />
+          </Avatar>
+        </MediaSection>
 
-      <ContentSection>
-        <Title>{title}</Title>
-        <Description>
-          {description} {children}
-        </Description>
-      </ContentSection>
-    </Wrapper>
+        <ContentSection>
+          <Title>{title}</Title>
+          <Description>
+            {description} {children}
+          </Description>
+        </ContentSection>
+      </Wrapper>
+    </Link>
   );
 };
 

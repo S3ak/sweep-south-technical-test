@@ -11,13 +11,16 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "faker": "^4.1.0",
+    "isomorphic-unfetch": "^3.0.0",
     "next": "9.3.6",
     "node-fetch": "^2.6.0",
     "react": "16.13.1",
     "react-dom": "16.13.1",
+    "react-icons": "^3.10.0",
     "styled-media-query": "^2.1.2",
     "styled-tools": "^1.7.1",
-    "react-icons": "^3.10.0"
+    "swr": "^0.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
