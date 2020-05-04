@@ -1,20 +1,34 @@
+"use strict";
+
+const fs = require("fs");
+
 import Head from "next/head";
 import React from "react";
-import fetch from "node-fetch";
+import useSWR from "swr";
+
 import Profiles from "../src/components/containers/profiles";
 import { globalStyles } from "./../src/styles/global";
+import { fetcher } from "../src/utils/helpers";
 
-export default function Home({ people = [] }) {
-  // TODO: Dispatch people to people reducer
+const seed = "monde";
+const resultsLimit = 10;
+
+export default function Home({ initialData = [] }) {
+  // TODO: Dispatch data to people reducer
+  const { data, error } = useSWR("/api/profiles", fetcher, { initialData });
+
+  if (error) return <div>{error.message}</div>;
+  if (!data) return <div>Loading...</div>;
+
   return (
-    <div className="container">
+    <div>
       <Head>
         <title>Profile Viewer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main>
-        <Profiles initialPeople={people} />
+        <Profiles initialPeople={data} />
       </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
@@ -26,20 +40,16 @@ export default function Home({ people = [] }) {
   );
 }
 
-// NOTE: This is called at build time
 export async function getStaticProps() {
-  const endPoint = "https://randomuser.me/api/?results=10";
+  const endPoint = `https://randomuser.me/api/?seed=${seed}&results=${resultsLimit}`;
+  const res = await fetcher(endPoint);
 
-  // TODO: try catch this section
-  const res = await fetch(endPoint);
+  let data = JSON.stringify(res.results);
+  fs.writeFileSync("data/people.json", data);
 
-  const people = await res.json();
-
-  // The value of the `props` key will be
-  //  passed to the `Home` component
   return {
     props: {
-      people: people.results,
+      initialData: res.results,
     },
   };
 }
