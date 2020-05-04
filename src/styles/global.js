@@ -1,41 +1,43 @@
-export const globalStyles = `
-    :root {
-        --color-white: #fff;
-        --color-black: #fff; 
-    }
+import { createGlobalStyle } from "styled-components";
 
-    html {
-      height: 100%;
-      font-size: 100%;
-    }
+export const GlobalStyles = createGlobalStyle`
+  :root {
+      --color-white: #fff;
+      --color-black: #fff; 
+  }
 
-    body {
-      max-height: 100%;
-      color: pink;
-    }
+  html {
+    height: 100%;
+    font-size: 100%;
+  }
 
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
-    Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
-    sans-serif;
-    box-sizing: border-box;
-}
+  body {
+    max-height: 100%;
+    color: pink;
+  }
 
-* {
-  box-sizing: inherit;
-}
+  html,
+  body {
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+      Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+      sans-serif;
+      box-sizing: border-box;
+  }
 
-    img {
+  * {
+    box-sizing: inherit;
+  }
+
+  img {
     width: 100%;
   }
 
-  figure, img, h1, h2, h3, h4, h5, h6 {
+  figure, img, h1, h2, h3, h4, h5, h6, li, ul {
     margin: 0;
     padding: 0;
   }
 `;
 
-export default globalStyles;
+export default GlobalStyles;

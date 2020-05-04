@@ -7,7 +7,6 @@ import React from "react";
 import useSWR from "swr";
 
 import Profiles from "../src/components/containers/profiles";
-import { globalStyles } from "./../src/styles/global";
 import { fetcher } from "../src/utils/helpers";
 
 const seed = "monde";
@@ -32,10 +31,6 @@ export default function Home({ initialData = [] }) {
       </main>
 
       <footer>Built with ❤ by Monde Sineke.</footer>
-
-      <style jsx global>
-        {globalStyles}
-      </style>
     </div>
   );
 }
