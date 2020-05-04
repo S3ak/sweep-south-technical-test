@@ -5,7 +5,6 @@ import useSWR from "swr";
 
 import { fetcher } from "../../src/utils/helpers";
 import { globalStyles } from "./../../src/styles/global";
-import { getProfileData, getProfilesIds } from "../../lib/profiles";
 
 const seed = "monde";
 const resultsLimit = 10;
