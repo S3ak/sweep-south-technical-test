@@ -1,9 +1,11 @@
 import React from "react";
 import { PageTransition } from "next-page-transitions";
+import { ThemeProvider } from "styled-components";
+import { Grommet } from "grommet";
+import App, { Container } from "next/app";
 
 import Loader from "../src/components/presentational/loader";
 
-import { ThemeProvider } from "styled-components";
 import GlobalStyles from "../src/styles/global";
 
 const TIMEOUT = 400;
@@ -29,6 +31,8 @@ const theme = {
     disabled: ["#0070f3"],
     muted: ["#0070f3"],
     shadow: ["#0070f3"],
+    white: ["#fff"],
+    black: ["#000"],
   },
   radius: {
     s1: "2px",
@@ -62,50 +66,52 @@ const theme = {
 
 function MyApp({ Component, pageProps }) {
   return (
-    <ThemeProvider theme={theme}>
-      <PageTransition
-        timeout={TIMEOUT}
-        classNames="page-transition"
-        loadingComponent={<Loader />}
-        loadingDelay={500}
-        loadingTimeout={{
-          enter: TIMEOUT,
-          exit: 0,
-        }}
-        loadingClassNames="loading-indicator"
-      >
-        <Component {...pageProps} />
-      </PageTransition>
-      <GlobalStyles />
+    <Grommet>
+      <ThemeProvider theme={theme}>
+        <PageTransition
+          timeout={TIMEOUT}
+          classNames="page-transition"
+          loadingComponent={<Loader />}
+          loadingDelay={500}
+          loadingTimeout={{
+            enter: TIMEOUT,
+            exit: 0,
+          }}
+          loadingClassNames="loading-indicator"
+        >
+          <Component {...pageProps} />
+        </PageTransition>
+        <GlobalStyles />
 
-      <style jsx global>{`
-        .page-transition-enter {
-          opacity: 0;
-          transform: translate3d(0, 20px, 0);
-        }
-        .page-transition-enter-active {
-          opacity: 1;
-          transform: translate3d(0, 0, 0);
-          transition: opacity ${TIMEOUT}ms, transform ${TIMEOUT}ms;
-        }
-        .page-transition-exit {
-          opacity: 1;
-        }
-        .page-transition-exit-active {
-          opacity: 0;
-          transition: opacity ${TIMEOUT}ms;
-        }
-        .loading-indicator-appear,
-        .loading-indicator-enter {
-          opacity: 0;
-        }
-        .loading-indicator-appear-active,
-        .loading-indicator-enter-active {
-          opacity: 1;
-          transition: opacity ${TIMEOUT}ms;
-        }
-      `}</style>
-    </ThemeProvider>
+        <style jsx global>{`
+          .page-transition-enter {
+            opacity: 0;
+            transform: translate3d(0, 20px, 0);
+          }
+          .page-transition-enter-active {
+            opacity: 1;
+            transform: translate3d(0, 0, 0);
+            transition: opacity ${TIMEOUT}ms, transform ${TIMEOUT}ms;
+          }
+          .page-transition-exit {
+            opacity: 1;
+          }
+          .page-transition-exit-active {
+            opacity: 0;
+            transition: opacity ${TIMEOUT}ms;
+          }
+          .loading-indicator-appear,
+          .loading-indicator-enter {
+            opacity: 0;
+          }
+          .loading-indicator-appear-active,
+          .loading-indicator-enter-active {
+            opacity: 1;
+            transition: opacity ${TIMEOUT}ms;
+          }
+        `}</style>
+      </ThemeProvider>
+    </Grommet>
   );
 }
 

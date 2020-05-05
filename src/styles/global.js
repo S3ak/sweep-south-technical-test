@@ -1,11 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
-  :root {
-      --color-white: #fff;
-      --color-black: #fff; 
-  }
-
   html {
     height: 100%;
     font-size: 100%;
@@ -13,7 +8,6 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     max-height: 100%;
-    color: pink;
   }
 
   html,
@@ -28,6 +22,10 @@ export const GlobalStyles = createGlobalStyle`
 
   * {
     box-sizing: inherit;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   img {
