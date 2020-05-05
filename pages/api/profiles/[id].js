@@ -14,7 +14,7 @@ export default async (req, res) => {
     const resp = await fetcher(endPoint);
     people = resp.results;
   } catch (e) {
-    res.status(500).json({ error: e });
+    return res.status(500).json({ error: e });
   }
 
   const person = people.find((p) => p.login.uuid === id);
