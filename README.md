@@ -1,9 +1,8 @@
 # WIP
 
-
 ## Links
-Deployment dashoard: https://vercel.com/seak/sweep-south-technical-test
 
+Deployment dashoard: https://vercel.com/seak/sweep-south-technical-test
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/zeit/next.js/tree/canary/packages/create-next-app).
 
@@ -21,6 +20,12 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
+## Resources:
+
+type-scale: https://type-scale.com/?size=14&scale=1.618&text=A%20Visual%20Type%20Scale&font=Roboto&fontweight=400&bodyfont=Poppins&bodyfontweight=400&lineheight=1.65&backgroundcolor=white&fontcolor=%23333&preview=false
+
+Color palette:
+
 ## Learn More
 
 To learn more about Next.js, take a look at the following resources:
@@ -36,6 +41,6 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
 ### Learnings
+
 https://nextjs.org/learn/basics/data-fetching

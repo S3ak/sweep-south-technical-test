@@ -4,7 +4,7 @@ import React from "react";
 import useSWR from "swr";
 
 import { fetcher } from "../../src/utils/helpers";
-import { globalStyles } from "./../../src/styles/global";
+import Layout from "./../../src/components/presentational/layout";
 
 const seed = "monde";
 const resultsLimit = 10;
@@ -23,28 +23,20 @@ export default function Profile({ initialData }) {
   const { name, picture, location } = data;
 
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Profile person Viewer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <img src={picture.large} />
+      <img src={picture.large} />
 
-        <h1>
-          {name.title} {name.first} {name.last}
-        </h1>
+      <h1>
+        {name.title} {name.first} {name.last}
+      </h1>
 
-        <p>{location.city}</p>
-      </main>
-
-      <footer>Built with ❤ by Monde Sineke.</footer>
-
-      <style jsx global>
-        {globalStyles}
-      </style>
-    </div>
+      <p>{location.city}</p>
+    </Layout>
   );
 }
 

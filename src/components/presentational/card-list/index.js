@@ -12,7 +12,7 @@ export const CardList = ({ items = [] }) => {
           <CardListItem key={login.uuid}>
             <CardPreview
               title={`${name.title} ${name.first} ${name.last}`}
-              imageUrl={picture.medium}
+              imageUrl={picture.large}
               description={location.city}
               uuid={login.uuid}
             />

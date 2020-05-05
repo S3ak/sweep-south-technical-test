@@ -8,6 +8,11 @@ import {
   Avatar,
   Title,
   Description,
+  Background,
+  Foreground,
+  ColorSection,
+  BlankSection,
+  HeaderSection,
 } from "./styled";
 
 export const Card = ({
@@ -21,18 +26,28 @@ export const Card = ({
     // TODO: Use name instead, hide id
     <Link href={`/profiles/${uuid}`}>
       <Wrapper>
-        <MediaSection>
-          <Avatar>
-            <img src={imageUrl} />
-          </Avatar>
-        </MediaSection>
+        <Background>
+          <ColorSection />
+          <BlankSection />
+        </Background>
 
-        <ContentSection>
-          <Title>{title}</Title>
-          <Description>
-            {description} {children}
-          </Description>
-        </ContentSection>
+        <Foreground>
+          <HeaderSection>
+            <Title>{title}</Title>
+          </HeaderSection>
+
+          <MediaSection>
+            <Avatar>
+              <img src={imageUrl} />
+            </Avatar>
+          </MediaSection>
+
+          <ContentSection>
+            <Description>
+              {description} {children}
+            </Description>
+          </ContentSection>
+        </Foreground>
       </Wrapper>
     </Link>
   );

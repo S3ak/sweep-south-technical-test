@@ -7,8 +7,8 @@ import React from "react";
 import useSWR from "swr";
 
 import Profiles from "../src/components/containers/profiles";
-import { globalStyles } from "./../src/styles/global";
 import { fetcher } from "../src/utils/helpers";
+import Layout from "../src/components/presentational/layout";
 
 const seed = "monde";
 const resultsLimit = 10;
@@ -21,22 +21,14 @@ export default function Home({ initialData = [] }) {
   if (!data) return <div>Loading...</div>;
 
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Profile Viewer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <main>
-        <Profiles initialPeople={data} />
-      </main>
-
-      <footer>Built with ❤ by Monde Sineke.</footer>
-
-      <style jsx global>
-        {globalStyles}
-      </style>
-    </div>
+      <Profiles initialPeople={data} />
+    </Layout>
   );
 }
 
