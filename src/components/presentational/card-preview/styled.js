@@ -23,6 +23,7 @@ export const Wrapper = styled.article`
   position: relative;
   cursor: pointer;
   transition: box-shadow 3s ease;
+  text-decoration: none;
 
   &:hover {
     box-shadow: 11px 11px 12px -9px rgba(31, 31, 31, 1);
@@ -96,7 +97,7 @@ export const Avatar = styled.div`
   max-height: 600px;
   overflow: hidden;
   padding: 4%;
-  margin: 0;
+  margin: 0 auto;
   background: white;
 
   img {
@@ -113,12 +114,12 @@ export const Title = styled.h3`
   font-size: 1.7rem;
   padding: 4% 4% 0;
   text-align: center;
-  color: ${palette("background.")};
+  color: ${palette("white", 0, "white")};
 `;
 
 export const Description = styled.p`
   width: 100%;
   font-size: 1rem;
-  color: ${palette("text")};
+  color: ${palette("text", 0, "#464")};
   text-align: center;
 `;

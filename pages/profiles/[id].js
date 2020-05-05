@@ -5,6 +5,7 @@ import useSWR from "swr";
 
 import { fetcher } from "../../src/utils/helpers";
 import Layout from "./../../src/components/presentational/layout";
+import CardFull from "../../src/components/presentational/card-full";
 
 const seed = "monde";
 const resultsLimit = 10;
@@ -20,7 +21,7 @@ export default function Profile({ initialData }) {
   if (error) return <div>{error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
-  const { name, picture, location } = data;
+  const { name, picture, location, login } = data;
 
   return (
     <Layout>
@@ -29,13 +30,12 @@ export default function Profile({ initialData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <img src={picture.large} />
-
-      <h1>
-        {name.title} {name.first} {name.last}
-      </h1>
-
-      <p>{location.city}</p>
+      <CardFull
+        title={`${name.title} ${name.first} ${name.last}`}
+        imageUrl={picture.large}
+        description={location.city}
+        uuid={login.uuid}
+      />
     </Layout>
   );
 }
