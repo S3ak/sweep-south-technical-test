@@ -9,9 +9,7 @@ import { Wrapper } from "./styled";
 export const Layout = ({ children }) => {
   return (
     <Wrapper>
-      <Header>
-        <h1>Welcome</h1>
-      </Header>
+      <Header title="Welcome" />
       <Main>{children}</Main>
       <Footer>Built with ❤ by Monde Sineke.</Footer>
     </Wrapper>
