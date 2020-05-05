@@ -3,7 +3,10 @@ import styled from "styled-components";
 import GlobalStyles from "./../../styles/global";
 
 export const WithGlobalStyling = ({ children }) => (
-  <GlobalStyles>{children}</GlobalStyles>
+  <>
+    <GlobalStyles />
+    {children}
+  </>
 );
 
 export default WithGlobalStyling;
