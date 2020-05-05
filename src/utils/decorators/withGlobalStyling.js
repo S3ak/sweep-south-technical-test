@@ -1,13 +1,9 @@
 import React from "react";
 import styled from "styled-components";
-import { globalStyles } from "./../../styles/global";
-
-const Wrapper = styled.div`
-  ${globalStyles}
-`;
+import GlobalStyles from "./../../styles/global";
 
 export const WithGlobalStyling = ({ children }) => (
-  <Wrapper>{children}</Wrapper>
+  <GlobalStyles>{children}</GlobalStyles>
 );
 
 export default WithGlobalStyling;
