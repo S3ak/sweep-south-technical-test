@@ -1,9 +1,9 @@
 import React from "react";
+import App from "next/app";
+import Router from "next/router";
 import { ThemeProvider } from "styled-components";
 import { Grommet } from "grommet";
-import App from "next/app";
 import NProgress from "nprogress";
-import Router from "next/router";
 
 import GlobalStyles from "../src/styles/global";
 import "../src/styles/nprogress.css";
