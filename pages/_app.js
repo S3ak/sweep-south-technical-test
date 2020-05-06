@@ -1,14 +1,9 @@
 import React from "react";
-import { PageTransition } from "next-page-transitions";
 import { ThemeProvider } from "styled-components";
 import { Grommet } from "grommet";
-import App, { Container } from "next/app";
-
-import Loader from "../src/components/presentational/loader";
+import App from "next/app";
 
 import GlobalStyles from "../src/styles/global";
-
-const TIMEOUT = 400;
 
 // TODO: Establish theme try use css vars and pass them in here
 // TODO: Move to data dir
@@ -64,55 +59,17 @@ const theme = {
   },
 };
 
-function MyApp({ Component, pageProps }) {
-  return (
-    <Grommet>
-      <ThemeProvider theme={theme}>
-        <PageTransition
-          timeout={TIMEOUT}
-          classNames="page-transition"
-          loadingComponent={<Loader />}
-          loadingDelay={500}
-          loadingTimeout={{
-            enter: TIMEOUT,
-            exit: 0,
-          }}
-          loadingClassNames="loading-indicator"
-        >
+export default class MyApp extends App {
+  render() {
+    const { Component, pageProps } = this.props;
+
+    return (
+      <Grommet>
+        <ThemeProvider theme={theme}>
           <Component {...pageProps} />
-        </PageTransition>
-        <GlobalStyles />
-
-        <style jsx global>{`
-          .page-transition-enter {
-            opacity: 0;
-            transform: translate3d(0, 20px, 0);
-          }
-          .page-transition-enter-active {
-            opacity: 1;
-            transform: translate3d(0, 0, 0);
-            transition: opacity ${TIMEOUT}ms, transform ${TIMEOUT}ms;
-          }
-          .page-transition-exit {
-            opacity: 1;
-          }
-          .page-transition-exit-active {
-            opacity: 0;
-            transition: opacity ${TIMEOUT}ms;
-          }
-          .loading-indicator-appear,
-          .loading-indicator-enter {
-            opacity: 0;
-          }
-          .loading-indicator-appear-active,
-          .loading-indicator-enter-active {
-            opacity: 1;
-            transition: opacity ${TIMEOUT}ms;
-          }
-        `}</style>
-      </ThemeProvider>
-    </Grommet>
-  );
+          <GlobalStyles />
+        </ThemeProvider>
+      </Grommet>
+    );
+  }
 }
-
-export default MyApp;
