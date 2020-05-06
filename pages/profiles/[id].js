@@ -3,12 +3,10 @@ import { useRouter } from "next/router";
 import React from "react";
 import useSWR from "swr";
 
+import { fetchAllProfilesFromFs } from "../../lib/api";
 import { fetcher } from "../../src/utils/helpers";
 import Layout from "./../../src/components/presentational/layout";
 import CardFull from "../../src/components/presentational/card-full";
-
-const seed = "monde";
-const resultsLimit = 10;
 
 export default function Profile({ initialData }) {
   const { query } = useRouter();
@@ -21,7 +19,7 @@ export default function Profile({ initialData }) {
   if (error) return <div>{error.message}</div>;
   if (!data) return <div>Loading...</div>;
 
-  const { name, picture, location, login } = data;
+  const { name, picture, location } = data;
 
   return (
     <Layout>
@@ -34,21 +32,14 @@ export default function Profile({ initialData }) {
         title={`${name.title} ${name.first} ${name.last}`}
         imageUrl={picture.large}
         description={location.city}
-        uuid={login.uuid}
       />
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
-  const endPoint = `https://randomuser.me/api/?seed=${seed}&results=${resultsLimit}`;
-  let people;
-  let paths = [];
-
-  const resp = await fetcher(endPoint);
-  people = resp.results;
-
-  paths = people.map((x) => ({ params: { id: x.login.uuid } }));
+  const allProfiles = await fetchAllProfilesFromFs();
+  const paths = allProfiles.map((p) => ({ params: { id: p.login.uuid } }));
 
   return {
     paths,
@@ -57,17 +48,11 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const endPoint = `https://randomuser.me/api/?seed=${seed}&results=${resultsLimit}`;
-  let people;
-
-  const resp = await fetcher(endPoint);
-  people = resp.results;
-
-  const preson = people.find((p) => p.login.uuid === params.id);
-
+  const allProfiles = await fetchAllProfilesFromFs();
+  const person = allProfiles.find((p) => p.login.uuid === params.id);
   return {
     props: {
-      initialData: preson,
+      initialData: person,
     },
   };
 }

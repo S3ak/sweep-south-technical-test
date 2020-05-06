@@ -1,7 +1,3 @@
-"use strict";
-
-const fs = require("fs");
-
 import Head from "next/head";
 import React from "react";
 import useSWR from "swr";
@@ -10,8 +6,7 @@ import Profiles from "../src/components/containers/profiles";
 import { fetcher } from "../src/utils/helpers";
 import Layout from "../src/components/presentational/layout";
 
-const seed = "monde";
-const resultsLimit = 10;
+import { fetchAllProfiles } from "../lib/api";
 
 export default function Home({ initialData = [] }) {
   // TODO: Dispatch data to people reducer
@@ -33,15 +28,11 @@ export default function Home({ initialData = [] }) {
 }
 
 export async function getStaticProps() {
-  const endPoint = `https://randomuser.me/api/?seed=${seed}&results=${resultsLimit}`;
-  const res = await fetcher(endPoint);
-
-  let data = JSON.stringify(res.results);
-  fs.writeFileSync("data/people.json", data);
+  const allProfiles = await fetchAllProfiles();
 
   return {
     props: {
-      initialData: res.results,
+      initialData: allProfiles,
     },
   };
 }
