@@ -2,8 +2,11 @@ import React from "react";
 import { ThemeProvider } from "styled-components";
 import { Grommet } from "grommet";
 import App from "next/app";
+import NProgress from "nprogress";
+import Router from "next/router";
 
 import GlobalStyles from "../src/styles/global";
+import "../src/styles/nprogress.css";
 
 // TODO: Establish theme try use css vars and pass them in here
 // TODO: Move to data dir
@@ -57,6 +60,22 @@ const theme = {
     base: "1em",
     sm: ["0.61em", "0.38em", "0.23em"],
   },
+};
+
+NProgress.configure({ showSpinner: false });
+Router.onRouteChangeStart = () => {
+  // console.log('onRouteChnageStart triggered');
+  NProgress.start();
+};
+
+Router.onRouteChangeComplete = () => {
+  // console.log('onRouteChnageComplete triggered');
+  NProgress.done();
+};
+
+Router.onRouteChangeError = () => {
+  // console.log('onRouteChnageError triggered');
+  NProgress.done();
 };
 
 export default class MyApp extends App {
