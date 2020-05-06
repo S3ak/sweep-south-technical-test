@@ -1,18 +1,12 @@
-import { fetcher } from "../../../src/utils/helpers";
-
-const seed = "monde";
-const resultsLimit = 10;
+import { fetchAllProfiles } from "./../../../lib/api";
 
 export default async (req, res) => {
-  const endPoint = `https://randomuser.me/api/?seed=${seed}&results=${resultsLimit}`;
-  let people;
+  const { seed, limit } = req;
 
   try {
-    const resp = await fetcher(endPoint);
-    people = resp.results;
+    const people = await fetchAllProfiles(seed, limit);
+    return res.status(200).json(people);
   } catch (e) {
     return res.status(500).json({ error: e });
   }
-
-  res.status(200).json(people);
 };

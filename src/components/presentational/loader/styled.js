@@ -1,5 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
+// TODO: Move to utils
 const animeRotate = keyframes`
   0% {
     transform: rotate(0deg);
