@@ -12,7 +12,7 @@ export const CardList = ({ items = [] }) => {
       {items.length >= 1 &&
         items.map(({ name, login, picture, location }) => (
           <CardListItem key={login.uuid}>
-            <Link href={`/profiles/${login.uuid}`}>
+            <Link href={`/profiles/[id]`} as={`/profiles/${login.uuid}`}>
               {/* FIXME: anchor is styling all descendant text */}
               <a>
                 <CardPreview
