@@ -12,10 +12,14 @@ Please note we are looking for a simple, clean UI and a considered approach to t
 
 ## About
 
-Using next.js I'm building static html files rendered at build time.
+Using next.js I'm building static html files rendered at build time. Next JS always me to build isomphoric apps leveraging the benefits of PWA and SSR (Serverless 🤯) in one codebase. What this project tries to acheive is creating static HTML to be rendered before it is served to the client. We still need to keep the data in the UI fresh by using SWR to fetch new data when the app is rehydrated.
+
+## Implementation
+
+This app has two pages. The root/ index page holds the collection of limited profiles from the randomuser api.
 
 ### Gotchas
-One of the problems with randomuser is that the data changes on each request.  I've used a seed to var to make sure the data is always the same. I can't query a specific person so I have to pull all the profiles then find the specific user.
+One of the problems with randomuser is that the data changes on each request.  I've used a seed variable to make sure the data is always the same. I can't query a specific person so I have to pull all the profiles then find the specific user. I highly doubt you would ever have a backend implmentation with a REST structure like this IRL.
 
 ## Links
 
